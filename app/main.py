@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI ,HTTPException 
+from app.database import database
 
 app=FastAPI(title="support platform")
 
@@ -8,4 +9,13 @@ async def home():
 
 @app.get("/health")
 async def health_check():
-    return {"status":"healty"}
+    try:
+        await database.command("ping")
+        return{
+            "status":"healthy",
+            "database":"connected"
+        }
+    except Exception:
+        raise HTTPExeption(
+            status_code=500 
+        )
