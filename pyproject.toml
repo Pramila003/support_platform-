@@ -1,0 +1,20 @@
+[project]
+name = "support-platform"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pramila003", email = "pramila.yamgar007@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.159.1",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+support-platform = "support_platform:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
